@@ -8,7 +8,7 @@
 // sudo apt install python3-venv
 // https://wokwi.com/projects/new/esp32
 
-void setup()
+void setup() //
 {
   // put your setup code here, to run once:
   pinMode(LED_PIN, OUTPUT);
