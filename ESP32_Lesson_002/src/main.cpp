@@ -1,20 +1,31 @@
+// prpject - ESP32_Lesson_002
+
 #include <Arduino.h>
 
-#define L_P_A 2
-#define L_P_B 4
-#define L_P_C 5
+#define LED_PIN_1 0
+#define LED_PIN_2 2
+#define LED_PIN_3 15
+// Sumylyator
+//  https://wokwi.com/projects/new/esp32
 
 void setup()
 {
-  pinMode(L_P_A, OUTPUT);
-  pinMode(L_P_B, OUTPUT);
-  pinMode(L_P_C, OUTPUT);
+  pinMode(LED_PIN_1, OUTPUT);
+  pinMode(LED_PIN_2, OUTPUT);
+  pinMode(LED_PIN_3, OUTPUT);
 }
-
 void loop()
 {
-  digitalWrite(L_P_A, true);
-  delay(1000);
-  digitalWrite(L_P_A, false);
-  delay(1000);
+  digitalWrite(LED_PIN_1, true);
+  delay(200);
+  digitalWrite(LED_PIN_1, false);
+  delay(100);
+  digitalWrite(LED_PIN_2, true);
+  delay(200);
+  digitalWrite(LED_PIN_2, false);
+  delay(100);
+  digitalWrite(LED_PIN_3, true);
+  delay(200);
+  digitalWrite(LED_PIN_3, false);
+  delay(100);
 }

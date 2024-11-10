@@ -1,14 +1,13 @@
+// prpject - ESP32_Lesson_001
+
 #include <Arduino.h>
 
 #define LED_PIN 2
 
-// put function declarations here:
-//  digitalWrite(2, HIGH);
+// Sumylyator
+//  https://wokwi.com/projects/new/esp32
 
-// sudo apt install python3-venv
-// https://wokwi.com/projects/new/esp32
-
-void setup() //
+void setup() //////
 {
   // put your setup code here, to run once:
   pinMode(LED_PIN, OUTPUT);
