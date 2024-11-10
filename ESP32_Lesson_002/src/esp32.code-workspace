@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../esp32"
+		},
+		{
+			"name": "ESP32_Lesson_002",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}
