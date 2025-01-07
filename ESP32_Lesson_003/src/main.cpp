@@ -2,7 +2,7 @@
 //  https://wokwi.com/projects/new/esp32
 
 #include <Arduino.h>
-#define PIN_IN_1 17
+#define PIN_IN_1 23
 #define PIN_IN_2 4
 #define PIN_IN_3 4
 
@@ -10,9 +10,9 @@ void setup()
 {
 
     Serial.begin(115200);
-    pinMode(PIN_IN_1, INPUT);
-    // pinMode(PIN_IN_2, INPUT_PULLDOWN);
-    // pinMode(PIN_IN_3, INPUT_PULLUP);
+    // pinMode(PIN_IN_1, INPUT);
+    // pinMode(PIN_IN_1, INPUT_PULLDOWN);
+    pinMode(PIN_IN_1, INPUT_PULLUP);
 }
 
 void loop()

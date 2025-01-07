@@ -1,5 +1,4 @@
 // prpject - ESP32_Lesson_001
-
 #include <Arduino.h>
 
 #define LED_PIN 2
@@ -23,3 +22,11 @@ void loop()
 }
 
 // put function definitions here:
+
+/*
+#include errors detected. Please update your includePath. 
+Squiggles are disabled for this translation unit 
+(/home/lessons/Documents/PlatformIO
+/Projects/ESP32_Lesson_001/src/main.cpp).C/C++(1696)
+cannot open source file "sys/reent.h" (dependency of "Arduino.h")C/C++(1696)
+*/
