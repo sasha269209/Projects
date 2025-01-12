@@ -1,17 +1,18 @@
 // project - ESP32_Lesson_005
-//  https://wokwi.com/projects/new/esp32
 
 #include <Arduino.h>
-#define PIN_IN_1 23
-#define PIN_OUT_RED 13
-#define PIN_OUT_JELOW 12
-#define PIN_OUT_GREEN 14
 
-//Data for ligning
+// Data for Pins
+const int PIN_IN_1 = 23;
+const int PIN_OUT_RED = 13;
+const int PIN_OUT_JELOW = 12;
+const int PIN_OUT_GREEN = 14;
+
+// Data for ligning
 int num_color = 0;
 char arr_color[4] = {'r', 'j', 'g', 'j'};
 
-//Data for Button
+// Data for Button
 const int DELAY = 50;
 int buttonState = LOW; // LOW for INPUT_PULLUP or HIGH for INPUT_PULLDOWN
 int LastBatonState = LOW;
@@ -33,24 +34,26 @@ void blink_red();
 void blink_jelow();
 void blink_green();
 
-void foo();
+void read_button();
 
 void loop()
 {
-  foo();
+  read_button(); // This function is changing "num_color"
+                 //  acordin to reading button
 
-  switch (arr_color[num_color])
+  if (num_color > 3) // "num_color" can be (from 0 to 3)
+    num_color = 0;
+
+  switch (arr_color[num_color]) // This function take "num_color"
+                                //  and light this color
   {
   case 'r':
-    // Serial.println("RED");
     blink_red();
     break;
   case 'j':
-    // Serial.println("JELOW");
     blink_jelow();
     break;
   default:
-    // Serial.println("GREEN");
     blink_green();
     break;
   }
@@ -77,7 +80,7 @@ void blink_green()
   digitalWrite(PIN_OUT_JELOW, false);
 }
 
-void foo()
+void read_button()
 {
   reading = digitalRead(PIN_IN_1); // LOW or HIGHT - of butoon (normal LOW)
 
@@ -95,8 +98,6 @@ void foo()
         Serial.print("Button Pressed   ");
         // ++ count (go HIGT)
         ++num_color;
-        if (num_color == 4)
-          num_color = 0;
       }
       else
       {
