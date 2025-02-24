@@ -12,7 +12,7 @@ const int PORT_PIN = 36;
 int portValue = 0;
 
 int pwm_Chanel = 0; //Chuse the bcanal 0 (fron 0 to 15)
-int frecuence = 1000; //Frecuence of PWM 1kHz
+int frecuence = 5000; //Frecuence of PWM 1kHz
 int resolution = 9; //Resolution 9 bits = 512 values
 int pwmPin = 22; // Number of PWM pin
 
@@ -31,8 +31,8 @@ void setup()
 void loop()
 {
   portValue = analogRead(PORT_PIN);
-  Serial.println(portValue);
+  // Serial.println(portValue);
 
   ledcWrite(pwm_Chanel, portValue);
-  delay(500);
+  // delay(500);
 }
