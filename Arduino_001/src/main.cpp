@@ -2,7 +2,6 @@
 // Arduino UNO
 //
 
-const int PIN_A = 13;
 bool ON = true;
 
 volatile unsigned long int timerLED1;
@@ -14,9 +13,14 @@ ISR(TIMER0_COMPA_vect)
   timerLED1++;
 }
 
-void setup()
+// void setup()
+int main(void)
+
 {
-  pinMode(PIN_A, OUTPUT);
+  // pinMode(PIN_A, OUTPUT);
+  DDRB = 0xFF;
+  PORTB = 0xFF;
+
   // interrapt settings
 
   cli();
@@ -30,10 +34,10 @@ void setup()
   // CS00=1 CS01=1 CS02=0 equal 64
   // CS00=0 CS01=1 CS02=0 equal 8
   // CS00=1 CS01=0 CS02=0 equal 1
-  TCCR0B |= (1 << CS00); // write 1 in CS00
+  TCCR0B |= (1 << CS00); // write 1 in CS00 // ON 
   // TCCR0B &= ~(1 << CS00);  // write 0 in CS00
 
-  // TCCR0B |= (1 << CS01); // write 1 in CS01
+  //TCCR0B |= (1 << CS01); // write 1 in CS01
   // TCCR0B &= ~(1 << CS01);  // write 0 in CS01
 
   // TCCR0B |= (1 << CS02);   // write 1 in CS02
@@ -43,28 +47,32 @@ void setup()
 
   sei();
 
-  Serial.begin(9600);
-}
+  // Serial.begin(9600);
 
-void loop()
-{
-  cli();
-  timerRun = timerLED1;
-  sei();
+  // void loop()
 
-  if (timerRun - timerStart > 2 && ON)
+  while (1)
   {
-    digitalWrite(PIN_A, false);
-    ON = false;
-    timerStart = timerRun;
-    Serial.println(timerRun);
-  }
+    cli();
+    timerRun = timerLED1;
+    sei();
 
-  if (timerRun - timerStart > 10 && !ON)
-  {
-    digitalWrite(PIN_A, true);
-    ON = true;
-    timerStart = timerRun;
-    Serial.println(timerRun);
+    if (timerRun - timerStart > 2 && ON) // 2 = 1 mk cek
+    {
+      // digitalWrite(PIN_A, false);
+      PORTB &= ~(1 << 5);
+      ON = false;
+      timerStart = timerRun;
+      // Serial.println(timerRun);
+    }
+
+    if (timerRun - timerStart > 10 && !ON) // 10 = 5 mk cek
+    {
+      // digitalWrite(PIN_A, true);
+      PORTB |= (1 << 5);
+      ON = true;
+      timerStart = timerRun;
+      // Serial.println(timerRun);
+    }
   }
 }
