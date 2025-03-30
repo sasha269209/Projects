@@ -3,8 +3,8 @@
 int sensoRead = 15;
 int out_sygnal;
 const int PIN_OUT = 10;
-const int PIN_IN_S = 11;
-const int PIN_IN_D = 12;
+const int PIN_IN_S = A1;
+const int PIN_IN_D = A2;
 
 int compureDID(float input, float setpoint, float kp, float ki, float kd, float dt);
 
